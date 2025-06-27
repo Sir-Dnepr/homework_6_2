@@ -20,14 +20,18 @@ const dataByCustomer = [
     69990
 ];
 
-let baseValue = 0,
-    numberOfProcessedValues = 0;
+function getArithmeticMean(data) {
+    let baseValue = 0,
+        numberOfProcessedValues = 0;
 
-for (const item of dataByCustomer) {
-    if (typeof item === 'number' && !isNaN(item)) {
-        baseValue += item;
-        numberOfProcessedValues++;
+    for (const item of data) {
+        if (typeof item === 'number' && !isNaN(item)) {
+            baseValue += item;
+            numberOfProcessedValues++;
+        }
     }
+
+    return numberOfProcessedValues ? baseValue/numberOfProcessedValues : 0;
 }
 
-alert(numberOfProcessedValues ? baseValue/numberOfProcessedValues : 0)
+alert(getArithmeticMean(dataByCustomer));
